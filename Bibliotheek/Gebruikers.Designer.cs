@@ -1,6 +1,6 @@
 ﻿namespace Bibliotheek
 {
-    partial class Form1
+    partial class BoekenOverzicht
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,12 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            lbUsers = new ListBox();
+            SuspendLayout();
+            // 
+            // lbUsers
+            // 
+            lbUsers.FormattingEnabled = true;
+            lbUsers.Location = new Point(12, 12);
+            lbUsers.Name = "lbUsers";
+            lbUsers.Size = new Size(776, 424);
+            lbUsers.TabIndex = 0;
+            // 
+            // BoekenOverzicht
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(lbUsers);
+            Name = "BoekenOverzicht";
+            Text = "Form1";
+            Load += Form1_Load;
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private ListBox lbUsers;
     }
 }

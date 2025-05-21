@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain_Bibliotheek.Persistence
+namespace Domain_Bibliotheek.Business
 {
-    internal class PersistenceMapper
+    internal class Leningen
     {
+
     }
 }

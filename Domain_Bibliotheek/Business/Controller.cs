@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain_Bibliotheek.Persistence;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,65 @@ using System.Threading.Tasks;
 
 namespace Domain_Bibliotheek.Business
 {
-    internal class Controller
+    public class Controller
     {
+        //declaratie variabelen
+        private Persistence.BoekenMapper _boekmap;
+        private Boeken _boek;
+        private List<Boeken> _boekLijst;
+
+        private Gebruikers _gebruiker;
+        private Persistence.GebruikersMapper _gebruikermap;
+        private List<Gebruikers> _gebruikerLijst;
+        public Controller()
+        {
+            _boek = new Boeken();
+            _boekmap = new Persistence.BoekenMapper();
+            _boekLijst = _boekmap.Overzicht_Boeken();
+            _gebruiker = new Gebruikers();
+            _gebruikermap= new Persistence.GebruikersMapper();
+            _gebruikerLijst = _gebruikermap.Overzicht_Gebruikers();
+        }
+        //Roept je boekenlijst op
+        public List<Boeken> GetBoeken
+        {
+            get { return _boekLijst; }
+            set { _boekLijst = value; }
+        }
+        public void AddBoek(string Titel, string ISBN, int Graad, int Blz)
+        {
+            Boeken b = new Boeken();
+            b.Titel = Titel;
+            b.ISBN = ISBN;
+            b.Graad = Graad;
+            b.Blz = Blz;
+            _boekmap.AddBoek(b);
+        }
+        public void RemoveBoek(int bID)
+        {
+            Boeken b = new Boeken();
+            b.BoekID = bID;
+            _boekmap.DeleteBoek(b);
+        }
+        public List<Gebruikers> GetGebruikers
+        {
+            get { return _gebruikerLijst; }
+            set { _gebruikerLijst = value; }
+        }
+        public void AddGebruiker(string NaamC, string VoornaamC, string MailC, string WachtwoordC)
+        {
+            Gebruikers g = new Gebruikers();
+            g.Naam = NaamC;
+            g.Voornaam = VoornaamC;
+            g.Mail = MailC;
+            g.Wachtwoord = WachtwoordC;
+            _gebruikermap.AddGebruiker(g);
+        }
+        public void RemoveGebruiker(int gID)
+        {
+            Gebruikers g = new Gebruikers();
+            g.ID = gID;
+            _gebruikermap.DeleteGebruiker(g);
+        }
     }
-}
+} 
