@@ -39,7 +39,7 @@ namespace Domain_Bibliotheek.Persistence
                 while (rd.Read())
                 {
                     //instantie van de klasse Boeken
-                    Boeken boek = new Boeken(rd.GetString("ISBNNummer"), rd.GetString("Titel"), rd.GetInt32("Blz"),rd.GetInt32("Graad"));
+                    Boeken boek = new Boeken(rd.GetString("ISBNNummer"), rd.GetString("Titel"), rd.GetInt32("Blz"),rd.GetInt32("Graad"),rd.GetString("GenreNaam"));
                     _boekenlijst.Add(boek);
                 }
                 rd.Close();
@@ -60,6 +60,7 @@ namespace Domain_Bibliotheek.Persistence
             _cmd.Parameters.Add(new MySqlParameter("titel", _b.Titel));
             _cmd.Parameters.Add(new MySqlParameter("graad", _b.Graad));
             _cmd.Parameters.Add(new MySqlParameter("blz", _b.Blz));
+            _cmd.Parameters.Add(new MySqlParameter("genreID",_b.GenreID));
 
             _conn.Open(); //connectie openen
             _cmd.ExecuteNonQuery(); //toevoegen

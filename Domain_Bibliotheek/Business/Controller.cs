@@ -32,13 +32,14 @@ namespace Domain_Bibliotheek.Business
             get { return _boekLijst; }
             set { _boekLijst = value; }
         }
-        public void AddBoek(string Titel, string ISBN, int Graad, int Blz)
+        public void AddBoek(string Titel, string ISBN, int Graad, int Blz, int GenreID)
         {
             Boeken b = new Boeken();
             b.Titel = Titel;
             b.ISBN = ISBN;
             b.Graad = Graad;
             b.Blz = Blz;
+            b.GenreID = GenreID;
             _boekmap.AddBoek(b);
         }
         public void RemoveBoek(int bID)

@@ -8,8 +8,8 @@ namespace Domain_Bibliotheek.Business
 {
     public class Boeken
     { 
-        private int  _graad, _blz, _boekId;
-        private string _titel, _ISBNNummer;
+        private int  _graad, _blz, _boekId, _genreID;
+        private string _titel, _ISBNNummer, _genre;
 
 
         public string ISBN
@@ -17,8 +17,18 @@ namespace Domain_Bibliotheek.Business
             get { return _ISBNNummer; }
             set { _ISBNNummer = value; }
         }
+        public string Genre
+        {
+            get { return _genre; }
+            set { _genre = value; }
+        }
 
         public int Graad
+        {
+            get { return _genreID; }
+            set { _genreID = value; }
+        }
+        public int GenreID
         {
             get { return _graad; }
             set { _graad = value; }
@@ -43,7 +53,7 @@ namespace Domain_Bibliotheek.Business
 
         public override string ToString()
         {
-            return _titel + " | " + _ISBNNummer.ToString() + " | " + _graad.ToString() + _blz.ToString();        
+            return _titel + " | " + _genre + " | "+ _ISBNNummer.ToString() + " | " + _graad.ToString() + " | " + _blz.ToString();        
         }
 
         public Boeken()
@@ -52,14 +62,25 @@ namespace Domain_Bibliotheek.Business
             ISBN = "";
             Graad= 0;
             Blz= 0;
+            Genre = "";
         }
 
-        public Boeken(string titel, string isbn, int graad,int blz)
+        public Boeken(string titel, string isbn, int graad,int blz, string genre)
         {
             Titel = titel;
             ISBN = isbn;
             Graad = graad;
             Blz = blz;
+            Genre= genre;
+        }
+
+        public Boeken(string titel, string isbn, int graad, int blz, int genreid)
+        {
+            Titel = titel;
+            ISBN = isbn;
+            Graad = graad;
+            Blz = blz;
+            GenreID = genreid;
         }
 
         public Boeken(int boekid)
