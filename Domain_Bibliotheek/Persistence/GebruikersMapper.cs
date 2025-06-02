@@ -20,10 +20,10 @@ namespace Domain_Bibliotheek.Persistence
         MySqlConnection _conn;
         MySqlCommand _cmd;
         MySqlDataReader _dr;
-        public List<Gebruikers> Overzicht_Gebruikers()
+        public List<Gebruiker> Overzicht_Gebruikers()
         {
             //instantie van de list
-            List<Gebruikers> _gebruikerslijst = new List<Gebruikers>();
+            List<Gebruiker> _gebruikerslijst = new List<Gebruiker>();
 
             //doorlopen van de nodige klassen
             MySqlConnection con = new MySqlConnection(_connectionstring);
@@ -38,7 +38,7 @@ namespace Domain_Bibliotheek.Persistence
                 while (rd.Read())
                 {
                     //instantie van de klasse Boeken
-                    Gebruikers gebruiker = new Gebruikers(rd.GetString("Naam"), rd.GetString("VNaam"), rd.GetString("Mail"), rd.GetString("Wachtwoord"));
+                    Gebruiker gebruiker = new Gebruiker(rd.GetString("Naam"), rd.GetString("VNaam"), rd.GetString("Mail"), rd.GetString("Wachtwoord"));
                     _gebruikerslijst.Add(gebruiker);
                 }
                 rd.Close();
@@ -46,7 +46,7 @@ namespace Domain_Bibliotheek.Persistence
             }
             return _gebruikerslijst;
         }
-        public void AddGebruiker(Gebruikers _g)
+        public void AddGebruiker(Gebruiker _g)
         {
             //nieuwe connectie met DB met opgegeven connections tring
             MySqlConnection _conn = new MySqlConnection(_connectionstring);
@@ -64,7 +64,7 @@ namespace Domain_Bibliotheek.Persistence
             _cmd.ExecuteNonQuery(); //toevoegen
             _conn.Close(); //connectie sluiten
         }
-        public void DeleteGebruiker(Gebruikers _g)
+        public void DeleteGebruiker(Gebruiker _g)
         {
             //nieuwe connectie met DB met opgegeven connections tring
             MySqlConnection _conn = new MySqlConnection(_connectionstring);

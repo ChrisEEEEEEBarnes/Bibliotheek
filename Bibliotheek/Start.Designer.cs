@@ -1,6 +1,6 @@
 ﻿namespace Bibliotheek
 {
-    partial class OverzichtAlleBoeken
+    partial class Start
     {
         /// <summary>
         /// Required designer variable.
@@ -28,31 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lbOverzicht = new ListBox();
+            btnRegister = new Button();
+            btnLoginStart = new Button();
             SuspendLayout();
             // 
-            // lbOverzicht
+            // btnRegister
             // 
-            lbOverzicht.FormattingEnabled = true;
-            lbOverzicht.Location = new Point(12, 42);
-            lbOverzicht.Name = "lbOverzicht";
-            lbOverzicht.Size = new Size(763, 364);
-            lbOverzicht.TabIndex = 0;
+            btnRegister.Location = new Point(159, 107);
+            btnRegister.Name = "btnRegister";
+            btnRegister.Size = new Size(438, 80);
+            btnRegister.TabIndex = 0;
+            btnRegister.Text = "Registreren";
+            btnRegister.UseVisualStyleBackColor = true;
+            btnRegister.Click += btnRegister_Click;
             // 
-            // OverzichtAlleBoeken
+            // btnLoginStart
+            // 
+            btnLoginStart.Location = new Point(159, 221);
+            btnLoginStart.Name = "btnLoginStart";
+            btnLoginStart.Size = new Size(438, 79);
+            btnLoginStart.TabIndex = 1;
+            btnLoginStart.Text = "Inloggen";
+            btnLoginStart.UseVisualStyleBackColor = true;
+            btnLoginStart.Click += btnLoginStart_Click;
+            // 
+            // Start
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(lbOverzicht);
-            Name = "OverzichtAlleBoeken";
-            Text = "OverzichtAlleBoeken";
-            Load += OverzichtAlleBoeken_Load;
+            Controls.Add(btnLoginStart);
+            Controls.Add(btnRegister);
+            Name = "Start";
+            Text = "Start";
             ResumeLayout(false);
         }
 
         #endregion
 
-        private ListBox lbOverzicht;
+        private Button btnRegister;
+        private Button btnLoginStart;
     }
 }

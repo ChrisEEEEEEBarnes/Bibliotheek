@@ -27,6 +27,9 @@ namespace Bibliotheek
                 string Mail = tbMail.Text;
                 string Wachtwoord = tbWachtwoord.Text;
                 con.AddGebruiker(Naam, VNaam, Mail, Wachtwoord);
+                OverzichtAlleBoeken boeken = new OverzichtAlleBoeken();
+                boeken.Show();
+                this.Hide();
             }
             catch
             {

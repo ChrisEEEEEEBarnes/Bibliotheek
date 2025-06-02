@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain_Bibliotheek.Business
 {
-    public class Gebruikers
+    public class Gebruiker
     {
         private int _userId;
         private string _naam, _voornaam, _mail, _wachtwoord;
@@ -45,7 +45,7 @@ namespace Domain_Bibliotheek.Business
             return _naam + " | " + _voornaam + " | " + _mail;
         }
 
-        public Gebruikers()
+        public Gebruiker()
         {
             ID= 0;
             Naam = "";
@@ -53,7 +53,7 @@ namespace Domain_Bibliotheek.Business
             Mail = "";
             Wachtwoord = "";
         }
-        public Gebruikers(string naam, string voornaam, string mail, string wachtwoord)
+        public Gebruiker(string naam, string voornaam, string mail, string wachtwoord)
         {
             Naam = naam;
             Voornaam = voornaam;

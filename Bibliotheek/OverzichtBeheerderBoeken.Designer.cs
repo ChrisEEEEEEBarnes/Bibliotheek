@@ -1,6 +1,6 @@
 ﻿namespace Bibliotheek
 {
-    partial class OverzichtAlleBoeken
+    partial class OverzichtBeheerderBoeken
     {
         /// <summary>
         /// Required designer variable.
@@ -28,31 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lbOverzicht = new ListBox();
+            lbBhBoek = new ListBox();
+            btnBoekvoeg = new Button();
             SuspendLayout();
             // 
-            // lbOverzicht
+            // lbBhBoek
             // 
-            lbOverzicht.FormattingEnabled = true;
-            lbOverzicht.Location = new Point(12, 42);
-            lbOverzicht.Name = "lbOverzicht";
-            lbOverzicht.Size = new Size(763, 364);
-            lbOverzicht.TabIndex = 0;
+            lbBhBoek.AccessibleRole = AccessibleRole.PageTabList;
+            lbBhBoek.FormattingEnabled = true;
+            lbBhBoek.Location = new Point(12, 23);
+            lbBhBoek.Name = "lbBhBoek";
+            lbBhBoek.Size = new Size(437, 404);
+            lbBhBoek.TabIndex = 0;
             // 
-            // OverzichtAlleBoeken
+            // btnBoekvoeg
+            // 
+            btnBoekvoeg.Location = new Point(477, 23);
+            btnBoekvoeg.Name = "btnBoekvoeg";
+            btnBoekvoeg.Size = new Size(285, 99);
+            btnBoekvoeg.TabIndex = 1;
+            btnBoekvoeg.Text = "Boek Toevoegen";
+            btnBoekvoeg.UseVisualStyleBackColor = true;
+            btnBoekvoeg.Click += btnBoekvoeg_Click;
+            // 
+            // OverzichtBeheerderBoeken
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(lbOverzicht);
-            Name = "OverzichtAlleBoeken";
-            Text = "OverzichtAlleBoeken";
-            Load += OverzichtAlleBoeken_Load;
+            Controls.Add(btnBoekvoeg);
+            Controls.Add(lbBhBoek);
+            Name = "OverzichtBeheerderBoeken";
+            Text = "OverzichtBeheerderBoeken";
+            Load += OverzichtBeheerderBoeken_Load;
             ResumeLayout(false);
         }
 
         #endregion
 
-        private ListBox lbOverzicht;
+        private ListBox lbBhBoek;
+        private Button btnBoekvoeg;
     }
 }
