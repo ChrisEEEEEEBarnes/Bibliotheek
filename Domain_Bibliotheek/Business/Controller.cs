@@ -17,6 +17,9 @@ namespace Domain_Bibliotheek.Business
         private Gebruiker _gebruiker;
         private Persistence.GebruikersMapper _gebruikermap;
         private List<Gebruiker> _gebruikerLijst;
+
+        private Login _login;
+        private Persistence.LoginMapper _loginMapper;
         public Controller()
         {
             _boek = new Boeken();
@@ -25,6 +28,8 @@ namespace Domain_Bibliotheek.Business
             _gebruiker = new Gebruiker();
             _gebruikermap= new Persistence.GebruikersMapper();
             _gebruikerLijst = _gebruikermap.Overzicht_Gebruikers();
+            _login = new Login();
+            _loginMapper = new Persistence.LoginMapper();
         }
         //Roept je boekenlijst op
         public List<Boeken> GetBoeken
@@ -48,6 +53,17 @@ namespace Domain_Bibliotheek.Business
             b.BoekID = bID;
             _boekmap.DeleteBoek(b);
         }
+        public void UpdateBoek(string oisbn,string Titel, string ISBN, int Graad, int Blz, int GenreID)
+        {
+            Boeken b = new Boeken();
+            b.OISBN=oisbn;
+            b.Titel = Titel;
+            b.ISBN = ISBN;
+            b.Graad = Graad;
+            b.Blz = Blz;
+            b.GenreID = GenreID;
+            _boekmap.UpdateBoek(b);
+        }
         public List<Gebruiker> GetGebruikers
         {
             get { return _gebruikerLijst; }
@@ -67,6 +83,19 @@ namespace Domain_Bibliotheek.Business
             Gebruiker g = new Gebruiker();
             g.ID = gID;
             _gebruikermap.DeleteGebruiker(g);
+        }
+        public int Login(string mail,  string Wachtwoord)
+        {
+            Login login = new Login();
+            login.Mail = mail;
+            login.Password = Wachtwoord;
+            return _loginMapper.Controleer(login);
+        }
+        public int Recht(string mail)
+        {
+            Login login = new Login();
+            login.Mail = mail;
+            return _loginMapper.ControleerRecht(login);
         }
     }
 } 

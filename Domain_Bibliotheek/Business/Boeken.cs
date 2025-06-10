@@ -9,9 +9,13 @@ namespace Domain_Bibliotheek.Business
     public class Boeken
     { 
         private int  _graad, _blz, _boekId, _genreID;
-        private string _titel, _ISBNNummer, _genre;
+        private string _titel, _ISBNNummer, _genre, _oISBN;
 
-
+        public string OISBN
+        {
+            get { return _oISBN; }
+            set { _oISBN = value; }
+        }
         public string ISBN
         {
             get { return _ISBNNummer; }
@@ -53,15 +57,15 @@ namespace Domain_Bibliotheek.Business
 
         public override string ToString()
         {
-            return _titel + " | " + _genre + " | "+ _ISBNNummer.ToString() + " | " + _graad.ToString() + " | " + _blz.ToString();        
+            return _titel + " | " + _genre + " | " + _blz.ToString() + " | " + _graad.ToString() + " | " + _ISBNNummer.ToString();        
         }
 
         public Boeken()
         {
             Titel = "";
             ISBN = "";
-            Graad= 0;
-            Blz= 0;
+            Graad = 0;
+            Blz = 0;
             Genre = "";
         }
 
@@ -78,8 +82,17 @@ namespace Domain_Bibliotheek.Business
         {
             Titel = titel;
             ISBN = isbn;
-            Graad = graad;
             Blz = blz;
+            Graad = graad;
+            GenreID = genreid;
+        }
+        public Boeken(string oisbn,string titel, string isbn, int graad, int blz, int genreid)
+        {
+            OISBN = oisbn;
+            Titel = titel;
+            ISBN = isbn;
+            Blz = blz;
+            Graad = graad;
             GenreID = genreid;
         }
 

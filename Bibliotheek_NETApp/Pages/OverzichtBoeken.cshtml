@@ -1,0 +1,64 @@
+﻿@page
+@model Bibliotheek_NETApp.Pages.OverzichtBoekenModel
+@{
+}
+<form method="get">
+	<div class="form-group">
+		<label>Titel:</label>
+		<input type="text" name="TitelFilter" value="@Model.TitelFilter" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label>Genre:</label>
+		<input type="text" name="GenreFilter" value="@Model.GenreFilter" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label>Min. bladzijden:</label>
+		<input type="number" name="MinBladzijden" value="@Model.MinBladzijden" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label>Max. bladzijden:</label>
+		<input type="number" step="1" name="MaxBladzijden" value="@Model.MaxBladzijden" class="form-control" />
+	</div>
+	<input type="submit" value="Filteren" class="btn btn-primary" />
+</form>
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				<a asp-route-sortOrder="@(Model.CurrentSort== "Titel" ? "titel_desc" : "Titel")">
+					Titel @(Model.CurrentSort == "Titel" ? "▲" : Model.CurrentSort == "titel_desc" ? "▼" : "")
+				</a>
+			</th>
+			<th>
+				<a asp-route-sortOrder="@(Model.CurrentSort == "genre" ? "genre_desc" : "genre")">
+					Genre @(Model.CurrentSort == "genre" ? "▲" : Model.CurrentSort == "genre_desc" ? "▼" : "")
+				</a>
+			</th>
+			<th>
+				<a asp-route-sortOrder="@(Model.CurrentSort == "bladzijden" ? "bladzijden_desc" : "bladzijden")">
+					Bladzijden @(Model.CurrentSort == "bladzijden" ? "▲" : Model.CurrentSort == "bladzijden_desc" ? "▼" : "")
+				</a>
+			</th>
+			<th>
+				<a asp-route-sortOrder="@(Model.CurrentSort == "graad" ? "graad_desc" : "graad")">
+					Graad @(Model.CurrentSort == "graad" ? "▲" : Model.CurrentSort == "graad_desc" ? "▼" : "")
+				</a>
+			</th>
+			<th>
+				ISBN
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var boek in Model.Boekenlijst)
+		{
+			<tr>
+				<td>@boek.Titel</td>
+				<td>@boek.Genre</td>
+				<td>@boek.Blz.ToString()</td>
+				<td>@boek.Graad</td>
+				<td>@boek.ISBN</td>
+			</tr>
+		}
+	</tbody>
+</table>

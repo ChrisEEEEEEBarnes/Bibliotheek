@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bibliotheek", "Bibliotheek\Bibliotheek.csproj", "{D5E5545C-D2D3-42A2-8B95-26E2FECFF6D4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain_Bibliotheek", "Domain_Bibliotheek\Domain_Bibliotheek.csproj", "{393CD77B-3C7F-4C96-9501-39363CCB3910}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bibliotheek_NETApp", "Bibliotheek_NETApp\Bibliotheek_NETApp.csproj", "{1A3E7C71-D104-4C47-BFA7-0241241F5B51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{393CD77B-3C7F-4C96-9501-39363CCB3910}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{393CD77B-3C7F-4C96-9501-39363CCB3910}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{393CD77B-3C7F-4C96-9501-39363CCB3910}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A3E7C71-D104-4C47-BFA7-0241241F5B51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A3E7C71-D104-4C47-BFA7-0241241F5B51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A3E7C71-D104-4C47-BFA7-0241241F5B51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A3E7C71-D104-4C47-BFA7-0241241F5B51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

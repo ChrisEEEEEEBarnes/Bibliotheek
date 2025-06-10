@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Domain_Bibliotheek.Business;
 
 namespace Bibliotheek
 {
@@ -17,32 +18,29 @@ namespace Bibliotheek
         {
             InitializeComponent();
         }
-
+        Controller con = new Controller();
         private void btnLogin_Click(object sender, EventArgs e)
         {
             
-            MySqlConnection conn = new MySqlConnection("server = localhost; userid = root; database = bibliotheek");
-            MySqlDataAdapter sda = new MySqlDataAdapter("select count(*) from gebruiker where Mail = '" + tbLogMail.Text + "' and Wachtwoord = '" + tbLogW8.Text + "'", conn);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            if (dt.Rows[0][0].ToString() == "1")
+            string mail= tbLogMail.Text;
+            string w8=tbLogW8.Text;
+            con.Login(mail, w8);
+            if(con.Login(mail, w8) == 1)
             {
-                MessageBox.Show("username and password are matched", "info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                OverzichtAlleBoeken boek = new OverzichtAlleBoeken();
-                boek.Show();
-                this.Close();
+                if (con.Recht(mail) == 1)
+                {
+                    OverzichtBeheerderBoeken beheerboek = new OverzichtBeheerderBoeken();
+                    beheerboek.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    OverzichtAlleBoeken boek = new OverzichtAlleBoeken();
+                    boek.Show();
+                    this.Hide();
+                }
+
             }
-
-            else
-            {
-                MessageBox.Show("Incorrect Username and Password", "info", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

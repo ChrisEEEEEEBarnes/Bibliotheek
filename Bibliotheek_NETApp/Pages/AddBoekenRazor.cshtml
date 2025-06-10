@@ -1,0 +1,29 @@
+﻿@page
+@model Bibliotheek_NETApp.Pages.AddBoekenRazorModel
+@{
+}
+<form method="post">
+	<div class="form-group">
+		<label for="Titel">Titel</label><br />
+		<input type="text" class="form-control" id="Titel" name="Titel" value="@Model.Titel" required />
+	</div>
+	<div class="form-group">
+		<label for="ISBNNummer">ISBNNummer</label><br />
+		<input type="text" class="form-control" id="ISBNNummer" name="ISBNNummer" value="@Model.ISBN" required />
+	</div>
+	<div class="form-group">
+		<label for="Graad">Graad</label><br />
+		<input type="number" class="form-control" id="Graad" name="Graad" max="3" value="@Model.Graad" required />
+	</div>
+	<div class="form-group">
+		<label for="Bladzijden">Bladzijden</label><br />
+		<input type="number" class="form-control" id="Bladzijden" name="Bladzijden" step="1" value="@Model.Blz" required />
+	</div>
+	<div class="form-group">
+		<label for="GenreID">Genre ID</label><br />
+		<input type="number" class="form-control" id="GenreID" name="GenreID" value="@Model.GenreID" required />
+	</div>
+	<div>
+		<button type="submit" class="btn btn-primary">Toevoegen</button>
+	</div>
+</form>	

@@ -80,6 +80,26 @@ namespace Domain_Bibliotheek.Persistence
             _cmd.ExecuteNonQuery(); //toevoegen
             _conn.Close(); //connectie sluiten
         }
+        public void UpdateBoek(Boeken _b)
+        {
+            //nieuwe connectie met DB met opgegeven connections tring
+            MySqlConnection _conn = new MySqlConnection(_connectionstring);
+            //nieuw MySQL-statement voor connectie 'conn' in kwestie (cf. connection string)
+            //insert into, met gebruik van parameters voor 'values'
+            MySqlCommand _cmd = new MySqlCommand("UpdateBoek", _conn);
+            _cmd.CommandType = CommandType.StoredProcedure;
+            //invullen van beide parameters voor command 'cmd'
+            _cmd.Parameters.Add(new MySqlParameter("isbn", _b.OISBN));
+            _cmd.Parameters.Add(new MySqlParameter("ISBNnummer", _b.ISBN));
+            _cmd.Parameters.Add(new MySqlParameter("titel", _b.Titel));
+            _cmd.Parameters.Add(new MySqlParameter("graad", _b.Graad));
+            _cmd.Parameters.Add(new MySqlParameter("blz", _b.Blz));
+            _cmd.Parameters.Add(new MySqlParameter("genreID", _b.GenreID));
+
+            _conn.Open(); //connectie openen
+            _cmd.ExecuteNonQuery(); //toevoegen
+            _conn.Close(); //connectie sluiten
+        }
         public BoekenMapper()
         {
             _connectionstring = "server=localhost;userid=root;database=bibliotheek;port=3306;password=1234";
