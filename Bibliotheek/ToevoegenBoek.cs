@@ -17,6 +17,7 @@ namespace Bibliotheek
         public ToevoegenBoek()
         {
             InitializeComponent();
+        
             tbTitel.TabIndex = 0;
             tbISBN.TabIndex = 1;
             tbGraad.TabIndex = 2;
@@ -45,14 +46,10 @@ namespace Bibliotheek
 
                 MessageBox.Show($"Je koos genre {genreNaam} met ID {genreId}");
             }
-        */
+         }*/
 
         private void btnVoegToe_Click(object sender, EventArgs e)
         {
-            
-         
-
-           
                 string titel = tbTitel.Text;
                 string isbn = tbISBN.Text;
                 int graad= Convert.ToInt32(tbGraad.Text);
@@ -60,8 +57,7 @@ namespace Bibliotheek
                 int genreId= (int)((KeyValuePair<int,string>)cbGenre.SelectedItem).Key;
                 MessageBox.Show(genreId.ToString());
 
-                con.AddBoek(titel, isbn, graad, blz,genreId);
-            
+                con.AddBoek(titel, isbn, graad, blz,genreId);   
         }
     }
 }

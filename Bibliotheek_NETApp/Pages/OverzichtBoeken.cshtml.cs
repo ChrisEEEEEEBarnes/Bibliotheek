@@ -44,7 +44,7 @@ namespace Bibliotheek_NETApp.Pages
 
             //Als er een MinBladzijden is opgegeven, filteren we de boeken waarvan de MinBladzijden hoger is dan het gegeven getal
             if (MinBladzijden.HasValue)
-                boek = boek.Where(b => b.Blz <= MinBladzijden.Value);
+                boek = boek.Where(b => b.Blz >= MinBladzijden.Value);
 
             //Als er een MaxBladzijden is opgegeven, filteren we de boeken waarvan de Maxbladzijden lager is dan het gegeven getal
             if (MaxBladzijden.HasValue)

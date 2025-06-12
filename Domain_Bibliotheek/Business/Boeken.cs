@@ -21,6 +21,11 @@ namespace Domain_Bibliotheek.Business
             get { return _ISBNNummer; }
             set { _ISBNNummer = value; }
         }
+        public string Titel
+        {
+            get { return _titel; }
+            set { _titel = value; }
+        }
         public string Genre
         {
             get { return _genre; }
@@ -49,12 +54,6 @@ namespace Domain_Bibliotheek.Business
             set { _blz = value; }
         }
 
-        public string Titel
-        {
-            get { return _titel; }
-            set { _titel = value; }
-        }
-
         public override string ToString()
         {
             return _titel + " | " + _genre + " | " + _blz.ToString() + " | " + _graad.ToString() + " | " + _ISBNNummer.ToString();        
@@ -69,16 +68,16 @@ namespace Domain_Bibliotheek.Business
             Genre = "";
         }
 
-        public Boeken(string titel, string isbn, int graad,int blz, string genre)
+        public Boeken(string isbn, string titel, int blz,int graad, string genre)
         {
             Titel = titel;
             ISBN = isbn;
-            Graad = graad;
             Blz = blz;
+            Graad = graad;
             Genre= genre;
         }
-
-        public Boeken(string titel, string isbn, int graad, int blz, int genreid)
+        //toevoegen boeken
+        public Boeken(string isbn, string titel,  int graad, int blz, int genreid)
         {
             Titel = titel;
             ISBN = isbn;
@@ -86,6 +85,7 @@ namespace Domain_Bibliotheek.Business
             Graad = graad;
             GenreID = genreid;
         }
+        //update boeken
         public Boeken(string oisbn,string titel, string isbn, int graad, int blz, int genreid)
         {
             OISBN = oisbn;

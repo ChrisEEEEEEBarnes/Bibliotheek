@@ -56,6 +56,7 @@ namespace Domain_Bibliotheek.Persistence
             MySqlCommand _cmd = new MySqlCommand("AddBoek", _conn);
             _cmd.CommandType = CommandType.StoredProcedure;
             //invullen van beide parameters voor command 'cmd'
+           
             _cmd.Parameters.Add(new MySqlParameter("ISBNnummer", _b.ISBN));
             _cmd.Parameters.Add(new MySqlParameter("titel", _b.Titel));
             _cmd.Parameters.Add(new MySqlParameter("graad", _b.Graad));

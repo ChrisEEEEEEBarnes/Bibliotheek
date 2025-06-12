@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using static Org.BouncyCastle.Asn1.Cmp.Challenge;
+using Domain_Bibliotheek.Business;
 
 namespace Bibliotheek_NETApp.Pages
 {
     public class AddBoekenRazorModel : PageModel
     {
+        
         [BindProperty]
         public string Titel { get; set; }
         [BindProperty]
